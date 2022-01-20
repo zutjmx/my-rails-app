@@ -1,10 +1,21 @@
 <p style="color: green"><%= notice %></p>
 
-<%= render @friend %>
+<div class="card">
+  <div class="card-body">
+    <h5 class="card-title">Detalle del Amigo:</h5>
+    
+    <ul class="list-group list-group-flush">
+      <li class="list-group-item"><p class="card-text"><%= render @friend %></p></li>
+      <li class="list-group-item">
+        <%= link_to "Editar éste amigo", edit_friend_path(@friend), class: "btn btn-success" %>
+        <br/>
+        <br/>
+        <%= link_to "Volver a la lista de amigos", friends_path, class: "btn btn-info" %>
+        <br/>
+        <br/>
+        <%= button_to "Eliminar éste amigo", @friend, method: :delete, class: "btn btn-danger" %>
+      </li>
+    </ul>
 
-<div>
-  <%= link_to "Edit this friend", edit_friend_path(@friend) %> |
-  <%= link_to "Back to friends", friends_path %>
-
-  <%= button_to "Destroy this friend", @friend, method: :delete %>
+  </div>
 </div>
