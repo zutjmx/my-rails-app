@@ -1,5 +1,3 @@
-<p style="color: green"><%= notice %></p>
-
 <h1>Lista de Amigos</h1>
 
 <div id="friends">
@@ -12,6 +10,7 @@
       <th scope="col">Teléfono</th>
       <th scope="col">Cuenta de Twitter</th>
       <th scope="col">Ver Detalle</th>
+      <th scope="col">Editar</th>
     </tr>
     </thead>
     <tbody>
@@ -24,7 +23,12 @@
         <td><%= friend.twitter %></td>
         <td>
           <p>
-            <%= link_to "Ver Detalle", friend %>
+            <%= link_to "Ver Detalle", friend, class: "btn btn-info" %>
+          </p>
+        </td>
+        <td>
+          <p>
+            <%= link_to "Editar éste amigo", edit_friend_path(friend), class: "btn btn-success" %>
           </p>
         </td>
       </tr> 

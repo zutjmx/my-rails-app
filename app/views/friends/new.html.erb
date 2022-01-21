@@ -1,9 +1,7 @@
 <h1>Nuevo Amigo</h1>
-
+<br/>
 <%= render "form", friend: @friend %>
-
-<br>
-
+<br/>
 <div>
-  <%= link_to "Volver a la lista de amigos", friends_path %>
+  <%= link_to "Volver a la lista de amigos", friends_path, class: "btn btn-info"  %>
 </div>
