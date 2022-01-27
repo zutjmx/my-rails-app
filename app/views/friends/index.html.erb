@@ -9,29 +9,33 @@
       <th scope="col">Correo Electrónico</th>
       <th scope="col">Teléfono</th>
       <th scope="col">Cuenta de Twitter</th>
+      <th scope="col">ID de Usuario</th>
       <th scope="col">Ver Detalle</th>
       <th scope="col">Editar</th>
     </tr>
     </thead>
     <tbody>
     <% @friends.each do |friend| %>
-      <tr>
-        <th scope="row"><%= friend.first_name %></th>
-        <td><%= friend.last_name %></td>
-        <td><%= friend.email %></td>
-        <td><%= friend.phone %></td>
-        <td><%= friend.twitter %></td>
-        <td>
-          <p>
-            <%= link_to "Ver Detalle", friend, class: "btn btn-info" %>
-          </p>
-        </td>
-        <td>
-          <p>
-            <%= link_to "Editar éste amigo", edit_friend_path(friend), class: "btn btn-success" %>
-          </p>
-        </td>
-      </tr> 
+      <% if friend.user == current_user %>
+        <tr>
+          <th scope="row"><%= friend.first_name %></th>
+          <td><%= friend.last_name %></td>
+          <td><%= friend.email %></td>
+          <td><%= friend.phone %></td>
+          <td><%= friend.twitter %></td>
+          <td><%= friend.user_id %></td>
+          <td>
+            <p>
+              <%= link_to "Ver Detalle", friend, class: "btn btn-info" %>
+            </p>
+          </td>
+          <td>
+            <p>
+              <%= link_to "Editar éste amigo", edit_friend_path(friend), class: "btn btn-success" %>
+            </p>
+          </td>
+        </tr>
+      <% end %> 
     <% end %>
     </tbody>
   </table>
